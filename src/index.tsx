@@ -18,7 +18,6 @@ ReactDOM.render(
         <Router>
           <App />
         </Router>
-        
       </ThemeProvider>
     </Provider>
   </React.StrictMode>, // Virtual Dom
