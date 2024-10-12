@@ -124,35 +124,43 @@ export default function Products() {
               </Stack>
             </Stack>
 
-            <Stack className="block-wrapper">
+             <Stack className="block-wrapper">
               {products.length !== 0 ? (
                 products.map((ele, index) => {
                   return (
-                    <Stack className={"product-wrapper"}>
-                      <Stack className="product-card">
-                        <Stack
-                          className={"product-img"}
-                          sx={{ backgroundImage: `url(${ele.imagePath})` }}
-                        >
-                          <div className="product-sale">Normal size</div>
-                        </Stack>
-                        <div className="product-desc">
-                          <span className="product-title">
-                            {ele.productName}
-                          </span>
-                          <div className="product-coin">
-                            <MonetizationOnIcon />
-                            <span>12</span>
-                          </div>
-                        </div>
+                    <Stack className="product-card">
+                      <Stack
+                        className={"product-img"}
+                        sx={{ backgroundImage: `url(${ele.imagePath})` }}
+                      >
+                        <div className="product-sale">Normal size</div>
+                        <Button className="shop-btn">
+                          <img
+                            style={{ display: "flex" }}
+                            src="/icons/shopping-cart.svg"
+                            alt=""
+                          />
+                        </Button>
+                        <Button className="view-btn" sx={{ right: "36px" }}>
+                          <Badge badgeContent={20} color="secondary">
+                            <RemoveRedEyeIcon sx={{color: 20 ? "gray" : "white" }} />
+                          </Badge>
+                        </Button>
                       </Stack>
+                      <div className="product-desc">
+                        <span className="product-title">{ele.productName}</span>
+                        <div className="product-coin">
+                          <MonetizationOnIcon />
+                          <span>12</span>
+                        </div>
+                      </div>
                     </Stack>
                   );
                 })
               ) : (
                 <Box className={"no-data"}>New products are not available!</Box>
               )}
-            </Stack>
+            </Stack> 
           </Stack>
 
           <Stack className="pagination-section">
@@ -221,9 +229,7 @@ export default function Products() {
               width="1300"
               height="500"
               referrerPolicy="no-referrer-when-downgrade"
-            >
-              {" "}
-            </iframe>
+            ></iframe>
           </Stack>
         </Container>
       </div>
