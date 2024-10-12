@@ -1,4 +1,232 @@
+import React, { PureComponent } from "react";
+import {
+  Container,
+  Button,
+  Box,
+  Stack,
+  Typography,
+  Card,
+  CardMedia,
+  CardHeader,
+  Avatar,
+  IconButton,
+  CardContent,
+  CardActions,
+  Collapse,
+  CssVarsProvider,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import Badge from "@mui/material/Badge";
+import Pagination from "@mui/material/Pagination";
+import PaginationItem from "@mui/material/PaginationItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import Divider from "../../components/divider";
+import { AspectRatio, CardOverflow } from "@mui/joy";
+import { url } from "inspector";
+
+const products = [
+  { productName: "Cutlet", imagePath: "/img/cutlet.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab.webp" },
+  { productName: "Lavash", imagePath: "/img/cutlet.webp" },
+  { productName: "Cutlet", imagePath: "/img/cutlet.webp" },
+  // { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
+  // { productName: "Kebab", imagePath: "/img/kebab.webp" },
+];
+
 export default function Products() {
-    return <div>Products</div>;
-  }
-  
+  return (
+    <div className={"products"}>
+      <Container>
+        <Stack flexDirection={"column"} alignItems={"center"}>
+          <Stack className="avatar-box">
+            <div className="avatar-title">Burak Restaurant</div>
+            <Stack className="search-big-box">
+              <input
+                type="search"
+                className="search-input"
+                placeholder="Type here"
+              />
+              <Button
+                className="button-search"
+                variant="contained"
+                endIcon={<SearchIcon />}
+              >
+                Search
+              </Button>
+            </Stack>
+          </Stack>
+
+          <Stack className={"dishes-section-main"}>
+            <Stack className={"dishes-filter"} justifyContent={"flex-end"}>
+              <Button variant="contained" color={"primary"} className={"order"}>
+                New
+              </Button>
+              <Button
+                variant="contained"
+                color={"secondary"}
+                className={"order"}
+              >
+                Price
+              </Button>
+              <Button
+                variant="contained"
+                color={"secondary"}
+                className={"order"}
+              >
+                Views
+              </Button>
+            </Stack>
+          </Stack>
+
+          <Stack className={"list-category-section"}>
+            <Stack className={"category-wrap"}>
+              <Stack className={"category-main"}>
+                <Button
+                  variant="contained"
+                  color={"secondary"}
+                  className={"dish"}
+                >
+                  OTHER
+                </Button>
+                <Button
+                  variant="contained"
+                  color={"secondary"}
+                  className={"dish"}
+                >
+                  DESSERT
+                </Button>
+                <Button
+                  variant="contained"
+                  color={"secondary"}
+                  className={"dish"}
+                >
+                  DRINK
+                </Button>
+                <Button
+                  variant="contained"
+                  color={"secondary"}
+                  className={"dish"}
+                >
+                  SALAD
+                </Button>
+                <Button
+                  variant="contained"
+                  color={"primary"}
+                  className={"dish"}
+                >
+                  DISH
+                </Button>
+              </Stack>
+            </Stack>
+
+            <Stack className="block-wrapper">
+              {products.length !== 0 ? (
+                products.map((ele, index) => {
+                  return (
+                    <Stack className={"product-wrapper"}>
+                      <Stack className="product-card">
+                        <Stack
+                          className={"product-img"}
+                          sx={{ backgroundImage: `url(${ele.imagePath})` }}
+                        >
+                          <div className="product-sale">Normal size</div>
+                        </Stack>
+                        <div className="product-desc">
+                          <span className="product-title">
+                            {ele.productName}
+                          </span>
+                          <div className="product-coin">
+                            <MonetizationOnIcon />
+                            <span>12</span>
+                          </div>
+                        </div>
+                      </Stack>
+                    </Stack>
+                  );
+                })
+              ) : (
+                <Box className={"no-data"}>New products are not available!</Box>
+              )}
+            </Stack>
+          </Stack>
+
+          <Stack className="pagination-section">
+            <Pagination
+              count={3}
+              page={1}
+              renderItem={(item) => (
+                <PaginationItem
+                  components={{
+                    previous: ArrowBackIcon,
+                    next: ArrowForwardIcon,
+                  }}
+                  {...item}
+                  color={"secondary"}
+                />
+              )}
+            />
+          </Stack>
+        </Stack>
+      </Container>
+
+      <div className="brands-logo">
+        <Container>
+          <Stack className="brand-title">
+            <Box className="brand-title-text">Our Family Brands</Box>
+          </Stack>
+          <Stack className="brand-logos">
+            <Box className="logo-box">
+              <img
+                src="img/gurme.webp"
+                style={{ width: "238px", height: "329px" }}
+              />
+            </Box>
+
+            <Box className="logo-box">
+              <img
+                src="img/seafood.webp"
+                style={{ width: "230px", height: "329px" }}
+              />
+            </Box>
+
+            <Box className="logo-box">
+              <img
+                src="img/sweets.webp"
+                style={{ width: "238px", height: "329px" }}
+              />
+            </Box>
+
+            <Box className="logo-box">
+              <img
+                src="img/doner.webp"
+                style={{ width: "238px", height: "329px" }}
+              />
+            </Box>
+          </Stack>
+        </Container>
+      </div>
+
+      <div className="address">
+        <Container>
+          <Stack className={"address-area"}>
+            <div className="title">Our Address</div>
+            <iframe
+              style={{ marginTop: "60px" }}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12739.47668512789!2d127.13595307324173!3d35.82422338342881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357032c914f80a43%3A0x3ddf1224e55f7688!2sJeonju-si%2C%20Jeollabuk-do%2C%20South%20Korea!5e0!3m2!1sen!2sus!4v1697100252976!5m2!1sen!2sus"
+              width="1300"
+              height="500"
+              referrerPolicy="no-referrer-when-downgrade"
+            >
+              {" "}
+            </iframe>
+          </Stack>
+        </Container>
+      </div>
+    </div>
+  );
+}
