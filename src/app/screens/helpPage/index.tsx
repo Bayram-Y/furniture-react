@@ -57,7 +57,7 @@ export default function HelpPage() {
                       <Accordion key={number}>
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content" 
+                          aria-controls="panel1a-content"
                           id="panel1a-header"
                         >
                           <Typography>{value.question}</Typography>
