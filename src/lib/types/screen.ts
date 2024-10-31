@@ -16,6 +16,6 @@ export interface HomePageState {
 
 /** PRODUCTS PAGE **/
 
-/** ORDERS PAGE **/
+/** ORDERS **/
 
 
