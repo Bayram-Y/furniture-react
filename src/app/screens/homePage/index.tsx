@@ -28,7 +28,7 @@ export default function HomePage() {
   );
 
   useEffect(() => {
-    //Backend server data fetch => DATA
+    //Backend server data fetch => DATA (1)
     const product = new ProductService();
     product
       .getProducts({

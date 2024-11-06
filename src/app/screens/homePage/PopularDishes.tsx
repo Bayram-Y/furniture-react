@@ -16,7 +16,7 @@ import { retrievePopularDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
 
-/** REDUX SLICE & SELECTOR  **/
+/** REDUX  SELECTOR  **/
 const popularDishesRetriever = createSelector(
   retrievePopularDishes,
   (popularDishes) => ({ popularDishes })
@@ -34,6 +34,7 @@ export default function PopularDishes() {
             {popularDishes.length !== 0 ? (
               popularDishes.map((product: Product) => {
                 const imagePath = `${serverApi}/${product.productImages[0]}`;
+                console.log("imagePath:", imagePath);
                 return (
                   <CssVarsProvider key={product._id}>
                     <Card className={"card"}>

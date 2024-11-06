@@ -1,5 +1,4 @@
 import axios from "axios";
-import exp from "constants";
 import { serverApi } from "../../lib/config";
 import { Product, ProductInquiry } from "../../lib/types/product";
 

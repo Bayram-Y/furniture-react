@@ -28,14 +28,29 @@ import Divider from "../../components/divider";
 import { AspectRatio, CardOverflow } from "@mui/joy";
 import { url } from "inspector";
 
+import { Dispatch } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "./slice";
+import { createSelector } from "@reduxjs/toolkit";
+import { Product } from "../../../lib/types/product";
+import { retrieveProducts } from "./selector";
+
+/** REDUX SLICE & SELECTOR  **/
+const actionDispatch = (dispatch: Dispatch) => ({
+  setProducts: (data: Product[]) => dispatch(setProducts(data)),
+});
+
+const productsRetriever = createSelector(retrieveProducts, (products) => ({
+  products,
+}));
+
 const products = [
-  { productName: "Cutlet", imagePath: "/img/cutlet.webp" },
   { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab.webp" },
-  { productName: "Lavash", imagePath: "/img/cutlet.webp" },
-  { productName: "Cutlet", imagePath: "/img/cutlet.webp" },
-  // { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-  // { productName: "Kebab", imagePath: "/img/kebab.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
 ];
 
 export default function Products() {
@@ -124,7 +139,7 @@ export default function Products() {
               </Stack>
             </Stack>
 
-             <Stack className="block-wrapper">
+            <Stack className="block-wrapper">
               {products.length !== 0 ? (
                 products.map((ele, index) => {
                   return (
@@ -143,7 +158,9 @@ export default function Products() {
                         </Button>
                         <Button className="view-btn" sx={{ right: "36px" }}>
                           <Badge badgeContent={20} color="secondary">
-                            <RemoveRedEyeIcon sx={{color: 20 ? "gray" : "white" }} />
+                            <RemoveRedEyeIcon
+                              sx={{ color: 20 ? "gray" : "white" }}
+                            />
                           </Badge>
                         </Button>
                       </Stack>
@@ -160,7 +177,7 @@ export default function Products() {
               ) : (
                 <Box className={"no-data"}>New products are not available!</Box>
               )}
-            </Stack> 
+            </Stack>
           </Stack>
 
           <Stack className="pagination-section">

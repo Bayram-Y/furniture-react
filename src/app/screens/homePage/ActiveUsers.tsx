@@ -18,7 +18,7 @@ import { retrieveTopUsers } from "./selector";
 import { serverApi } from "../../../lib/config";
 import { Member } from "../../../lib/types/member";
 
-/** REDUX SLICE & SELECTOR  **/
+/** REDUX  SELECTOR  **/
 const topUsersRetriever = createSelector(retrieveTopUsers, (topUsers) => ({
   topUsers,
 }));
