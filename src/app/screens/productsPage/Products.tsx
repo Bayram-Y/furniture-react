@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useEffect } from "react";
 import {
   Container,
   Button,
@@ -34,6 +34,10 @@ import { setProducts } from "./slice";
 import { createSelector } from "@reduxjs/toolkit";
 import { Product } from "../../../lib/types/product";
 import { retrieveProducts } from "./selector";
+import ProductService from "../../services/ProductService";
+import { ProductCollection } from "../../../lib/enums/product.enum";
+import { log } from "console";
+import { serverApi } from "../../../lib/config";
 
 /** REDUX SLICE & SELECTOR  **/
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -44,16 +48,25 @@ const productsRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
 
-const products = [
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-];
-
 export default function Products() {
+  const { setProducts } = actionDispatch(useDispatch());
+
+  const { products } = useSelector(productsRetriever);
+
+  useEffect(() => {
+    const product = new ProductService();
+    product
+      .getProducts({
+        page: 1,
+        limit: 8,
+        order: "createdAt",
+        productCollection: ProductCollection.DISH,
+        search: "",
+      })
+      .then((data) => setProducts(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className={"products"}>
       <Container>
@@ -141,14 +154,19 @@ export default function Products() {
 
             <Stack className="block-wrapper">
               {products.length !== 0 ? (
-                products.map((ele, index) => {
+                products.map((product: Product) => {
+                  const imagePath = `${serverApi}/${product.productImages[0]}`;
+                  const sizeVolume =
+                    product.productCollection === ProductCollection.DRINK
+                      ? product.productVolume + " litre"
+                      : product.productSize + " size";
                   return (
-                    <Stack className="product-card">
+                    <Stack key={product._id} className="product-card">
                       <Stack
                         className={"product-img"}
-                        sx={{ backgroundImage: `url(${ele.imagePath})` }}
+                        sx={{ backgroundImage: `url(${imagePath})` }}
                       >
-                        <div className="product-sale">Normal size</div>
+                        <div className="product-sale">{sizeVolume}</div>
                         <Button className="shop-btn">
                           <img
                             style={{ display: "flex" }}
@@ -157,18 +175,26 @@ export default function Products() {
                           />
                         </Button>
                         <Button className="view-btn" sx={{ right: "36px" }}>
-                          <Badge badgeContent={20} color="secondary">
+                          <Badge
+                            badgeContent={product.productViews}
+                            color="secondary"
+                          >
                             <RemoveRedEyeIcon
-                              sx={{ color: 20 ? "gray" : "white" }}
+                              sx={{
+                                color:
+                                  product.productViews === 0 ? "gray" : "white",
+                              }}
                             />
                           </Badge>
                         </Button>
                       </Stack>
                       <div className="product-desc">
-                        <span className="product-title">{ele.productName}</span>
+                        <span className="product-title">
+                          {product.productName}
+                        </span>
                         <div className="product-coin">
                           <MonetizationOnIcon />
-                          <span>12</span>
+                          <span>{product.productPrice}</span>
                         </div>
                       </div>
                     </Stack>
