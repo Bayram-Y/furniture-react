@@ -30,28 +30,44 @@ import { url } from "inspector";
 
 import { Dispatch } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "./slice";
+import { setProducts, setRestaurant } from "./slice";
 import { createSelector } from "@reduxjs/toolkit";
 import { Product, ProductInquiry } from "../../../lib/types/product";
-import { retrieveProducts } from "./selector";
+import { retrieveProducts, retrieveRestaurant } from "./selector";
 import ProductService from "../../services/ProductService";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 import { log } from "console";
 import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
+import { CartItem } from "../../../lib/types/search";
 
 /** REDUX SLICE & SELECTOR  **/
 const actionDispatch = (dispatch: Dispatch) => ({
   setProducts: (data: Product[]) => dispatch(setProducts(data)),
+  setRestaurant: (data: null) => dispatch(setRestaurant(data)),
 });
 
 const productsRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
 
-export default function Products() {
-  const { setProducts } = actionDispatch(useDispatch());
+const restaurantRetriever = createSelector(
+  retrieveRestaurant,
+  (restaurant) => ({
+    restaurant,
+  })
+);
+
+interface ProductsProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function Products(props: ProductsProps) {
+  const { onAdd } = props;
+  const { setProducts, setRestaurant } = actionDispatch(useDispatch());
   const { products } = useSelector(productsRetriever);
+  const { restaurant } = useSelector(restaurantRetriever);
+
   const [productSearch, setProductSearch] = useState<ProductInquiry>({
     order: "createdAt",
     page: 1,
@@ -111,7 +127,10 @@ export default function Products() {
       <Container>
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Stack className="avatar-box">
-            <div className="avatar-title">Burak Restaurant</div>
+            <div className="avatar-title">
+              {" "}
+              {restaurant?.memberNick} Restaurant
+            </div>
             <Stack className="search-big-box">
               <input
                 type="search"
@@ -270,7 +289,20 @@ export default function Products() {
                         sx={{ backgroundImage: `url(${imagePath})` }}
                       >
                         <div className="product-sale">{sizeVolume}</div>
-                        <Button className="shop-btn">
+                        <Button
+                          className="shop-btn"
+                          onClick={(e) => {
+                            console.log("BUTTON PRESSED!");
+                            onAdd({
+                              _id: product._id,
+                              quantity: 1,
+                              name: product.productName,
+                              price: product.productPrice,
+                              image: product.productImages[0],
+                            });
+                            e.stopPropagation();
+                          }}
+                        >
                           <img
                             style={{ display: "flex" }}
                             src="/icons/shopping-cart.svg"
