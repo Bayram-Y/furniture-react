@@ -7,10 +7,26 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PausedOrders from "./PausedOrders";
 import ProcessOrders from "./ProcessOrders";
 import FinishedOrders from "./FinishedOrders";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "@reduxjs/toolkit";
+import { setPausedOrders, setProcessOrders, setFinishedOrders } from "./slice";
 import "../../../css/order.css";
+import { Order } from "../../../lib/types/order";
+
+/** REDUX SLICE & SELECTOR  **/
+const actionDispatch = (dispatch: Dispatch) => ({
+  setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
+  setProcessOrders: (data: Order[]) => dispatch(setProcessOrders(data)),
+  setFinishedOrders: (data: Order[]) => dispatch(setFinishedOrders(data)),
+});
 
 export default function OrdersPage() {
+  const { setPausedOrders, setProcessOrders, setFinishedOrders } =
+    actionDispatch(useDispatch());
+
   const [value, setValue] = useState("1");
+
+  /** HANDLERS **/
 
   const handleChange = (e: SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -47,31 +63,31 @@ export default function OrdersPage() {
 
         {/* Finished Right */}
         <Stack className="order-right">
-            <Box className="order-info-box">
-              <Box className="member-box">
-                <div className="order-user-img">
+          <Box className="order-info-box">
+            <Box className="member-box">
+              <div className="order-user-img">
+                <img
+                  src={"/icons/default-user.svg"}
+                  className={"order-user-avatar"}
+                />
+                <div className="order-user-icon-box">
                   <img
-                    src={"/icons/default-user.svg"}
-                    className={"order-user-avatar"}
+                    src="/icons/user-badge.svg"
+                    className="order-user-prof-img"
                   />
-                  <div className="order-user-icon-box">
-                    <img
-                      src="/icons/user-badge.svg"
-                      className="order-user-prof-img"
-                    />
-                  </div>
                 </div>
-                <span className="order-user-name">Marcus</span>
-                <span className="order-user-prof">USER</span>
-              </Box>
-              <Box className="liner"></Box>
-              <Box className="order-user-address">
-                <Box sx={{ display: "flex" }}>
-                  <LocationOnIcon fontSize="medium" />
-                </Box>
-                <div className="spec-address-txt">Do not exist</div>
-              </Box>
+              </div>
+              <span className="order-user-name">Marcus</span>
+              <span className="order-user-prof">USER</span>
             </Box>
+            <Box className="liner"></Box>
+            <Box className="order-user-address">
+              <Box sx={{ display: "flex" }}>
+                <LocationOnIcon fontSize="medium" />
+              </Box>
+              <div className="spec-address-txt">Do not exist</div>
+            </Box>
+          </Box>
           <Box className="order-info-box">
             <input
               type="text"

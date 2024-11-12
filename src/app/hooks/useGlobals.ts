@@ -4,6 +4,7 @@ import { Member } from "../../lib/types/member";
 interface GlobalInterface {
   authMember: Member | null;
   setAuthMember: (member: Member | null) => void;
+  // useBasket ni shu yerda qilsak boladi
 }
 
 export const GlobalContext = createContext<GlobalInterface | undefined>(
@@ -12,6 +13,6 @@ export const GlobalContext = createContext<GlobalInterface | undefined>(
 
 export const useGlobals = () => {
   const context = useContext(GlobalContext);
-  if (context === undefined) throw new Error("useGlobals withit Provider");
+  if (context === undefined) throw new Error("useGlobals without Provider");
   return context;
 };

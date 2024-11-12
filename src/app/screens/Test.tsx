@@ -1,5 +1,4 @@
 //@ts-nocheck
-import { log } from "console";
 import React, { Component } from "react";
 
 class Test extends Component {

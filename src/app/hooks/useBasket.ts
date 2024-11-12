@@ -26,6 +26,9 @@ const useBasket = () => {
     }
   };
 
+
+  // useEffect(); -orqali db dan data olamiz ... BAckend Data Fetch ...
+
   const onRemove = (input: CartItem) => {
     const exist: any = cartItems.find(
       (item: CartItem) => item._id === input._id

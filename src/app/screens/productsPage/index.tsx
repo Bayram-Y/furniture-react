@@ -13,7 +13,7 @@ interface ProductsPageProps {
 export default function ProductsPage(props: ProductsPageProps) {
   const { onAdd } = props;
   const products = useRouteMatch();
-  console.log("products:", products);
+  console.log("products8888:", products);
 
   return (
     <div className={"products-page"}>
