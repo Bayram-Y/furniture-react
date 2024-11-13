@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { OrdersPageState } from "../../../lib/types/screen";
-import exp from "constants";
 
 const initialState: OrdersPageState = {
   pausedOrders: [],
