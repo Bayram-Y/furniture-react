@@ -13,7 +13,7 @@ import { createSelector } from "reselect";
 import { retrieveNewDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
-import { ProductCollection } from "../../../lib/enums/product.enum";
+import { FurnitureCategory } from "../../../lib/enums/product.enum";
 
 /** REDUX  SELECTOR  **/
 const newDishesretriever = createSelector(retrieveNewDishes, (newDishes) => ({
@@ -29,14 +29,14 @@ export default function NewDishes() {
     <div className={"new-products-frame"}>
       <Container>
         <Stack className={"main"}>
-          <Box className={"category-title"}>Fresh Menu</Box>
+          <Box className={"category-title"}>Trending Products</Box>
           <Stack className={"cards-frame"}>
             <CssVarsProvider>
               {newDishes.length !== 0 ? (
                 newDishes.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   const sizeVolume =
-                    product.productCollection === ProductCollection.DRINK
+                    product.productCollection === FurnitureCategory.AQUARIUM
                       ? product.productVolume + "l"
                       : product.productSize + "size";
                   return (

@@ -7,8 +7,8 @@
 
 .homepage .static-frame {
   width: 100%;
-  height: 236px;
-  background-color: #343434;
+  height: 400px;
+  background-color: white;
 }
 
 .homepage .static-frame .info {
@@ -29,26 +29,64 @@
 }
 
 .homepage .static-frame .info .static-box .static-num {
-  text-align: center;
-  font-family: "Poppins";
-  font-size: 54px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 80px;
-  color: #d7b686;
+  width: 242px;
+  gap: 0px;
+  font-family: "Gilroy-Bold";
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 49.22px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+  color: #1e1e1e;
+}
+
+.homepage .static-frame .info .static-box .static-head {
+  margin-bottom: 10px;
+  gap: 0px;
+  opacity: 0.9px;
+  font-family: "Gilroy-Bold";
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 50px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+  color: #1e1e1e;
 }
 
 .homepage .static-frame .info .static-box .static-text {
-  text-align: center;
-  font-family: "Poppins";
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 30px;
-  color: #d7b586;
+  width: 284px;
+  height: 90px;
+  top: 1254px;
+  left: 452px;
+  gap: 0px;
+  opacity: 0.8px;
+  font-family: "Gilroy-Regular";
+  opacity: 80%;
+  font-size: 16px;
+  line-height: 29.6px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+  color: #1e1e1e;
 }
 
-/** POPULAR DISHES **/
+.homepage .static-frame .info .static-box .static-link {
+  margin-top: 5px;
+  margin-right: 110px;
+  font-size: 14px;
+  line-height: 25.9px;
+  text-align: left;
+  font-family: "Poppins";
+  color: #e58411;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/** POPULAR DISHES  BEST SELLING **/
+
 .homepage .popular-dishes-frame {
   width: 100%;
   height: 580px;
@@ -119,7 +157,7 @@
   color: #e3c08d;
 }
 
-/** NEW PRODUCTS **/
+/** NEW PRODUCTS TRENDING PRODUCTS **/
 
 .homepage .new-products-frame {
   width: 100%;
@@ -233,36 +271,180 @@
   color: #e3c08d;
 }
 
-/** ADVERTISEMENT  **/
+/** ADVERTISEMENT Material  **/
 
 .homepage .ads-restaurant-frame {
+  margin-top: 20px;
   width: 100%;
-  height: 693px;
+  height: 550px;
   display: flex;
   overflow: hidden;
   transform: perspective(0px);
-  box-shadow: -3px 0px 20px 14px #34343480;
+  display: flex;
+  flex-direction: row;
 }
 
-.homepage .ads-restaurant-frame .ads-video {
+.homepage .ads-restaurant-frame .frame {
+  margin-top: 40px;
   width: 100%;
-  background: #0c0e12;
+  position: relative;
   display: flex;
-  box-shadow: 0px -8px 90px rgb(215 215 255);
-  transform: scale(1.5);
-  overflow: hidden;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homepage .ads-restaurant-frame .frame .image {
+  width: 630px;
+  height: 445px;
+}
+
+.homepage .ads-restaurant-frame .frame .info {
+  width: 556px;
+  height: 132px;
+  top: 2899px;
+  left: 743px;
+  gap: 0px;
+  opacity: 0.8px;
+}
+
+.homepage .ads-restaurant-frame .frame .info h3 {
+  margin-bottom: -20px;
+  font-weight: 400;
+  color: #ff9200;
+}
+.homepage .ads-restaurant-frame .frame .info h2 {
+  font-family: "Gilroy-Bold";
+  font-size: 42px;
+  line-height: 49.22px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+}
+
+.homepage .ads-restaurant-frame .frame .info p {
+  opacity: 0.8px;
+  font-family: "Gilroy-Regular";
+  opacity: 80%;
+  font-size: 18px;
+  line-height: 29.6px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+  color: #1e1e1e;
+}
+
+.homepage .ads-restaurant-frame .frame .info a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #e58411;
 }
 
 /** ACTIVE USERS **/
+
+.homepage .story-frame {
+  margin-top: 200px;
+  width: 100%;
+  height: auto;
+  background: #f8f8ff;
+}
+
+.homepage .story-frame .story-container {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+}
+.homepage .story-frame .story-left {
+  width: 50%;
+  height: 300px;
+}
+.homepage .story-frame .story-left h3 {
+  font-weight: 600;
+  color: #ff9200;
+}
+
+.homepage .story-frame .story-left h2 {
+  margin-top: -8px;
+  width: 413px;
+  height: 156px;
+  top: 3597px;
+  left: 80px;
+  gap: 0px;
+  opacity: 0px;
+
+  font-family: "Gilroy-Bold";
+  font-size: 42px;
+  line-height: 49.22px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+}
+
+.homepage .story-frame .story-left span {
+  width: 520px;
+  height: 99px;
+  opacity: 0.8px;
+  font-family: "Gilroy-Regular";
+  opacity: 80%;
+  font-size: 20px;
+  line-height: 29.6px;
+  text-align: left;
+  text-underline-position: "from-font";
+  text-decoration-skip-ink: none;
+  color: #1e1e1e;
+}
+
+.homepage .story-frame .story-left a {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #e58411;
+}
+
+.homepage .story-frame .story-right {
+  width: 50%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+}
+
+.homepage .story-frame .story-right .img1 {
+  display: flex;
+  flex-direction: column;
+  width: 223px;
+  height: 338.42px;
+  top: 3707px;
+  left: 730px;
+  gap: 0px;
+  opacity: 0px;
+}
+.homepage .story-frame .story-right .img1 .image1 {
+  margin-bottom: 40px;
+}
+
+.homepage .story-frame .story-right .img2 {
+  margin-top: 130px;
+  margin-left: 85px;
+  width: 629px;
+  height: 445px;
+  gap: 0px;
+  border-radius: 20px 0px 0px 0px;
+  opacity: 0px;
+}
+
+/** EVENTS Active users **/
 
 .homepage .active-users-frame {
   width: 100%;
   height: 550px;
   display: flex;
-  background: #f8f8ff;
+  background: #f7f7f7;
 }
 
 .homepage .active-users-frame .main {
+  margin-top: 30px;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -318,192 +500,3 @@
   line-height: 34px;
   color: #e3c08d;
 }
-
-/** EVENTS **/
-
-.homepage .events-frame {
-  width: 100%;
-  height: 745px;
-  background: #f8f8ff;
-  display: flex;
-}
-
-.homepage .events-frame .category-title {
-  font-family: "Dancing Script";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 43px;
-  padding-top: 20px;
-}
-
-.homepage .events-frame .events-main {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.homepage .events-frame .events-main .events-text {
-  width: auto;
-  height: 70px;
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.homepage .events-frame .events-main .prev-next-frame {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  margin: 40px 0 40px 0;
-  height: 25px;
-}
-
-.homepage .events-frame .dot-frame-pagination {
-  position: relative;
-  width: auto;
-  display: flex;
-}
-
-.homepage .events-frame .events-main .events-info {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .events-frame .events-info .events-info-frame {
-  position: relative;
-  width: 500px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepage .events-frame .events-img {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  border-radius: 10px;
-  background-size: cover;
-}
-
-.homepage .events-frame .events-desc {
-  position: absolute;
-  margin-bottom: 7px;
-  padding: 10px;
-  display: flex;
-  width: 90%;
-  height: auto;
-  bottom: 5px;
-  background: #f8f8ff;
-  box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
-}
-
-.homepage .events-frame .events-desc .events-bott {
-  width: 97%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.homepage .events-frame .events-desc .events-bott .bott-left {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.homepage .events-frame .bott-left .event-title-speaker {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .events-frame .event-title-speaker .event-organizator {
-  display: flex;
-  align-items: center;
-}
-
-.homepage .events-frame .event-title-speaker .event-organizator img {
-  width: 20px;
-  margin-right: 10px;
-}
-
-.homepage .events-frame .event-organizator .spec-text-author {
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  line-height: 34px;
-  color: #140342;
-}
-
-.homepage .events-frame .bott-left .text-desc {
-  margin-top: 10px;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 26px;
-  color: #4f547b;
-}
-
-.homepage .events-frame .bott-left .bott-info {
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  width: 100%;
-  height: 16px;
-}
-
-.homepage .events-frame .bott-info .bott-info-main {
-  margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: auto;
-  height: 100%;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  color: #4f547b;
-}
-
-.homepage .events-frame .bott-info .bott-info-main img {
-  margin-right: 10px;
-}
-
-.homepage .events-frame .swiper-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-.homepage .events-frame .swiper-pagination-bullet {
-  margin-right: 5px;
-  width: 8px;
-  height: 8px;
-  text-align: center;
-  opacity: 1;
-  background: #f8f8ff;
-  border-radius: 50%;
-}
-
-.homepage .events-frame .swiper-pagination-bullet-active {
-  background: #343434;
-  border-radius: 50%;
-}
-

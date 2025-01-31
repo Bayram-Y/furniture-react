@@ -54,7 +54,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         <Stack className="menu">
           <Box>
             <NavLink to="/">
-              <img className="brand-logo" src="/icons/burak.svg" />
+              <span className={"panto"}>Panto</span>
             </NavLink>
           </Box>
           <Stack className="links">
@@ -65,7 +65,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             </Box>
             <Box className={"hover-line"}>
               <NavLink to="/products" activeClassName={"underline"}>
-                Products
+                Furniture
               </NavLink>
             </Box>
             {authMember ? (
@@ -87,8 +87,8 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 Help
               </NavLink>
             </Box>
-            {/* BASKET*/}
 
+            {/* BASKET*/}
             <Basket
               cartItems={cartItems}
               onAdd={onAdd}
@@ -167,9 +167,12 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         <Stack className={"header-frame"}>
           <Stack className={"detail"}>
             <Box className={"head-main-txt"}>
-              World's Most Delicious Cousine
+              Make Your Interior More Minimalistic & Modern
             </Box>
-            <Box className={"wel-txt"}>The Choice, not just a choice</Box>
+            <Box className={"wel-txt"}>
+              Turn your room with panto into a lot more minimalist and modern
+              with ease and speed
+            </Box>
             <Box className={"service-txt"}> 24 hours service</Box>
             <Box className={"signup"}>
               {!authMember ? (

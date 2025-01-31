@@ -8,31 +8,30 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import CardOverflow from "@mui/joy/CardOverflow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DescriptionOutlinedIcon from "@mui/icons-material/DialerSipOutlined";
-import Divider from "@mui/joy/Divider";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { retrievePopularDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
+import { retrievePopularProduct } from "./selector";
 
 /** REDUX  SELECTOR  **/
-const popularDishesRetriever = createSelector(
-  retrievePopularDishes,
-  (popularDishes) => ({ popularDishes })
+const popularProductRetriever = createSelector(
+  retrievePopularProduct,
+  (popularProduct) => ({ popularProduct })
 );
 
 export default function PopularDishes() {
-  const { popularDishes } = useSelector(popularDishesRetriever);
+  const { popularProduct } = useSelector(popularProductRetriever);
 
   return (
     <div className={"popular-dishes-frame"}>
       <Container>
         <Stack className={"popular-section"}>
-          <Box className={"category-title"}>Popular Dishes</Box>
+          <Box className={"category-title"}>Best Selling Products</Box>
           <Stack className={"cards-frame"}>
-            {popularDishes.length !== 0 ? (
-              popularDishes.map((product: Product) => {
+            {popularProduct.length !== 0 ? (
+              popularProduct.map((product: Product) => {
                 const imagePath = `${serverApi}/${product.productImages[0]}`;
                 return (
                   <CssVarsProvider key={product._id}>

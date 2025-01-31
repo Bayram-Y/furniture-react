@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -7,7 +7,7 @@ const Footers = styled.div`
   width: 100%;
   height: 590px;
   display: flex;
-  background: #343434;
+  background:#d8d8d8;
   background-size: cover;
 `;
 
@@ -19,58 +19,52 @@ export default function Footer() {
       <Container>
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
-            <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
-            </Box>
+            <Box className={"title"}>Panto</Box>
             <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
-            </Box>
-            <Box className="sns-context">
-              <img src={"/icons/facebook.svg"} />
-              <img src={"/icons/twitter.svg"} />
-              <img src={"/icons/instagram.svg"} />
-              <img src={"/icons/youtube.svg"} />
+              The advantage of hiring a workspace with us is that gives you
+              comfortable service and all-around facilities.
             </Box>
           </Stack>
-          <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
+          <Stack
+            sx={{ ml: "288px" }}
+            flexDirection={"row"}
+            className={"footer-helps"}
+          >
             <Stack>
-              <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
-                <Box className={"foot-category-link"}>
-                  <Link to="/">Home</Link>
-                  <Link to="/products">Products</Link>
-                  {authMember && <Link to="/orders">Orders</Link>}
-                  <Link to="/help">Help</Link>
-                </Box>
+              <Box className={"foot-category-title"}>Services</Box>
+              <Box className={"foot-category-link"}>
+                <span>Email Marketing</span>
+                <span>Company</span>
+                <span>Branding</span>
+              </Box>
+            </Stack>
+            <Stack>
+              <Box className={"foot-category-title"}>Furniture</Box>
+              <Box className={"foot-category-link"}>
+                <Link to="/products">Beds</Link>
+                {authMember && <Link to="/orders">Orders</Link>}
+                <Link to="/orders">Chair</Link>
+                <Link to="/">All</Link>
               </Box>
             </Stack>
             <Stack sx={{ ml: "100px" }}>
-              <Box>
-                <Box className={"foot-category-title"}>Find us</Box>
-                <Box
-                  flexDirection={"column"}
-                  sx={{ mt: "20px" }}
-                  className={"foot-category-link"}
-                  justifyContent={"space-between"}
-                >
-                  <Box flexDirection={"row"} className={"find-us"}>
-                    <span>L.</span>
-                    <div>Downtown, Dubai</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>P.</span>
-                    <div>+971 4 554 7777</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>E.</span>
-                    <div>devexuz@gmail.com</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>H.</span>
-                    <div>Visit 24 hours</div>
-                  </Box>
+              <Box className={"foot-category-title"}>Follow Us</Box>
+              <Box className="follow-us">
+                <Box className="sns-context">
+                  <img src={"/icons/facebook.svg"} />
+                  <span>Facebook</span>
+                </Box>
+                <Box className="sns-context">
+                  <img src={"/icons/twitter.svg"} />
+                  <span>Twitter</span>
+                </Box>
+                <Box className="sns-context">
+                  <img src={"/icons/instagram.svg"} />
+                  <span>Instagramm</span>
+                </Box>
+                <Box className="sns-context">
+                  <img src={"/icons/youtube.svg"} />
+                  <span>YouTube</span>
                 </Box>
               </Box>
             </Stack>
@@ -81,7 +75,13 @@ export default function Footer() {
           sx={{ mt: "80px" }}
         ></Stack>
         <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
+          <Box className={"boxes"}>
+            <Typography>© Copyright, All rights reserved.</Typography>
+            <Box className={"box"}>
+              <Typography>Terms & Conditions</Typography>
+              <Typography> Privacy Policy</Typography>
+            </Box>
+          </Box>
         </Stack>
       </Container>
     </Footers>

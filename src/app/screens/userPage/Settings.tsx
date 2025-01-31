@@ -9,7 +9,6 @@ import {
   sweetErrorHandling,
   sweetTopSmallSuccessAlert,
 } from "../../../lib/sweetAlert";
-import { Message } from "@mui/icons-material";
 import { Messages, serverApi } from "../../../lib/config";
 import MemberService from "../../services/MemberService";
 

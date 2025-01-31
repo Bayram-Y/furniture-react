@@ -14,7 +14,6 @@ import { sweetErrorHandling, sweetTopSuccessAlert } from "../lib/sweetAlert";
 import { Messages } from "../lib/config";
 import MemberService from "./services/MemberService";
 import { useGlobals } from "./hooks/useGlobals";
-import { T } from "../lib/types/common";
 import "../css/app.css";
 import "../css/navbar.css";
 import "../css/footer.css";

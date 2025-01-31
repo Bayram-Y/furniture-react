@@ -2,14 +2,14 @@ import { createSelector } from "reselect";
 import { AppRootState, HomePageState } from "../../../lib/types/screen";
 
 const selectHomePage = (state: AppRootState) => state.homePage;
-export const retrievePopularDishes = createSelector(
+export const retrievePopularProduct = createSelector(
   selectHomePage, //(1)
-  (homePage: HomePageState) => homePage.popularDishes //(2)
+  (homePage: HomePageState) => homePage.popularProduct //(2)
 );
 
 export const retrieveNewDishes = createSelector(
   selectHomePage,
-  (homePage: HomePageState) => homePage.newDishes
+  (homePage: HomePageState) => homePage.newProduct
 );
 
 export const retrieveTopUsers = createSelector(

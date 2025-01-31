@@ -64,12 +64,20 @@
   background: #343434;
 }
 
+/* SORT SECTION  */
+.products .sort-box {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 /* DISHES SECTION*/
 
 .products-page .products .dishes-section-main {
-  margin-top: 70px;
+  /* margin-top: 70px; */
   width: 100%;
-  height: 80px;
+  /* height: 80px; */
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -86,7 +94,11 @@
 
 .products-page .products .dishes-section-main .dishes-filter .order {
   margin-right: 20px;
-  border-radius: 4px;
+  border-radius: 25px 25px 25px 25px;
+  font-family: "Helvetica";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
 }
 
 /* CATEGORY*/
@@ -97,38 +109,41 @@
   min-height: 600px;
   width: 100%;
 }
-.products .list-category-section .category-wrap {
-  display: flex;
-  flex-direction: column;
+.products .sort-box .category-wrap {
+  margin-top: 50px;
   height: auto;
-  margin-top: 30px;
-  width: 50px;
-}
-.products .list-category-section .category-main {
-  margin-top: 30px;
-  height: 36px;
   display: flex;
   flex-direction: row;
-  justify-content: end;
-  transform: rotate(-90deg);
+}
+.products .category-main {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  /* background-color: rgb(177, 177, 177); */
 }
 
-.products .list-category-section .category-wrap .category-main .dish {
+.products .category-wrap .category-main .dish {
   min-width: auto;
   height: 36px;
-  margin-right: 20px;
-  border-radius: 4px;
+  margin-right: 10px;
+  border-radius: 25px 25px 25px 25px;
   font-family: "Helvetica";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-right: 10px;
+  color: #1e1e1e;
+}
+
+.products .category-wrap .category-main .dish:hover {
+  cursor: pointer;
+  background-color: rgb(177, 177, 177);
 }
 
 /* CARDS FRAME  SECTION*/
 
 .products-page .products .block-wrapper {
+  margin-top: 80px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -155,26 +170,20 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: auto;
+  width: 250px;
+  height: 380px;
   margin-right: 24px;
   margin-top: 40px;
-  width: 270px;
+  background: #ededed;
+  border-radius: 25px 25px 25px 25px;
 }
 
 .products-page .products .product-card .product-img {
   background-size: cover;
-  border-radius: 0 50px 0 0;
-  height: 275px;
+  border-radius: 25px 25px 25px 25px;
   position: relative;
-  width: 273px;
-}
-
-.product-desc {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  width: 90%;
+  width: 250px;
+  height: 350px;
 }
 
 .products-page .products .product-img .product-sale {
@@ -193,29 +202,6 @@
   background: #ff9200;
   box-shadow: 4px 6px 20px #0000001a;
   color: #fff;
-}
-
-.products .product-card .product-title {
-  font-family: "Poppins";
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 30px;
-  margin-top: 20px;
-}
-
-.products .product-card .product-coin {
-  align-items: center;
-  color: #e3c08d;
-  display: flex;
-  flex-direction: row;
-  font-family: "Poppins";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 36px;
-  margin-top: 2px;
 }
 
 .products-page .products .shop-btn {
@@ -270,7 +256,7 @@
 }
 
 .products .product-img:before {
-  border-radius: 0px 50px 0px 0px;
+  border-radius: 25px 25px 25px 25px;
   content: "";
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -284,7 +270,7 @@
 }
 
 .products .product-img:hover::before {
-  border-radius: 0px 50px 0px 0px;
+  border-radius: 25px 25px 25px 25px;
   opacity: 1;
 }
 
@@ -294,6 +280,37 @@
   max-width: 100%;
   height: auto;
   z-index: 1;
+}
+
+.product-desc {
+  /* align-items: center; */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.products .product-card .product-title {
+  margin-left: 10px;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.products .product-card .product-coin {
+  align-items: center;
+  /* color: #e3c08d; */
+  display: flex;
+  flex-direction: row;
+  font-family: "Poppins";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 36px;
+  margin-top: 2px;
 }
 /* PAGINATION */
 
@@ -307,7 +324,7 @@
 .brands-logo {
   width: 100%;
   height: auto;
-  background: #0d1518;
+  background: #ededed;
   display: flex;
   flex-direction: column;
   margin-bottom: 47px;
@@ -322,10 +339,10 @@
 
 .brands-logo .brand-title-text {
   margin-top: 64px;
-  width: 305px;
+  width: 350px;
   height: 46px;
-  color: #e3c08d;
-  font-family: Roboto;
+  color: #000000;
+  font-family: "Roboto";
   font-size: 36px;
   font-style: normal;
   font-weight: 700;
@@ -333,19 +350,58 @@
 }
 
 .brands-logo .brand-logos {
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 59px;
   margin-bottom: 92px;
 }
 
 .brands-logo .brand-logos .logo-box {
+  height: 260px;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 16px;
   background: cover no-repeat;
   box-shadow: 0px 0px 22px 0px #e4d4d4;
   margin-right: 75px;
 }
+.brands-logo .brand-logos .logo-box p {
+  text-align: center;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+/** ADVERTISEMENT  **/
+
+.products .ads-restaurant-frame {
+  width: 100%;
+  height: 590px;
+  display: flex;
+  overflow: hidden;
+  transform: perspective(0px);
+  box-shadow: -3px 0px 20px 14px #34343480;
+}
+
+.products .ads-restaurant-frame .ads-video {
+  width: 100%;
+  height: 1039px;
+  background: #0c0e12;
+  display: flex;
+  box-shadow: 0px -8px 90px rgb(215 215 255);
+  transform: scale(1.5);
+  overflow: hidden;
+}
+
+/*  ADDRESS  */
 
 .products .address {
   background: #f8f8ff;
@@ -361,11 +417,14 @@
 }
 
 .products .address .title {
+  width: 100%;
   font-family: "Dancing Script";
+  text-align: center;
   font-size: 36px;
   font-style: normal;
   font-weight: 700;
   line-height: 43px;
+  color: #363535;
 }
 
 /** CHOSEN PRODUCT **/

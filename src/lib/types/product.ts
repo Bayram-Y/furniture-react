@@ -1,17 +1,17 @@
 import {
-  ProductCollection,
-  ProductSize,
-  ProductStatus,
+  FurnitureSize,
+  FurnitureStatus,
+  FurnitureCategory,
 } from "../enums/product.enum";
 
 export interface Product {
   _id: string;
-  productStatus: ProductStatus;
-  productCollection: ProductCollection;
+  productStatus: FurnitureStatus;
+  productCollection: FurnitureCategory;
   productName: string;
   productPrice: number;
   productLeftCount: number;
-  productSize: ProductSize;
+  productSize: FurnitureSize;
   productVolume: number;
   productDesc?: string;
   productImages: string[];
@@ -24,6 +24,6 @@ export interface ProductInquiry {
   order: string;
   page: number;
   limit: number;
-  productCollection?: ProductCollection;
+  productCollection?: FurnitureCategory;
   search?: string;
 }

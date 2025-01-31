@@ -33,7 +33,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
 
   const deleteOrderHandler = async (e: T) => {
     try {
-      if (!authMember) throw new Error(Messages.error2);
+      if (!authMember) sweetErrorHandling(Messages.error2);
       const orderId = e.target.value;
       const input: OrderUpdateInput = {
         orderId: orderId,

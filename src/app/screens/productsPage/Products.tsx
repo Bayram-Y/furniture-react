@@ -1,20 +1,5 @@
-import React, { ChangeEvent, PureComponent, useEffect, useState } from "react";
-import {
-  Container,
-  Button,
-  Box,
-  Stack,
-  Typography,
-  Card,
-  CardMedia,
-  CardHeader,
-  Avatar,
-  IconButton,
-  CardContent,
-  CardActions,
-  Collapse,
-  CssVarsProvider,
-} from "@mui/material";
+import { ChangeEvent, useEffect, useState } from "react";
+import { Container, Button, Box, Stack, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -23,20 +8,14 @@ import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import Divider from "../../components/divider";
-import { AspectRatio, CardOverflow } from "@mui/joy";
-import { url } from "inspector";
-
 import { Dispatch } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setRestaurant } from "./slice";
 import { createSelector } from "@reduxjs/toolkit";
 import { Product, ProductInquiry } from "../../../lib/types/product";
-import { retrieveProducts, retrieveRestaurant } from "./selector";
+import { retrieveProducts, retrieveFirm } from "./selector";
 import ProductService from "../../services/ProductService";
-import { ProductCollection } from "../../../lib/enums/product.enum";
-import { log } from "console";
+import { FurnitureCategory } from "../../../lib/enums/product.enum";
 import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
@@ -51,12 +30,9 @@ const productsRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
 
-const restaurantRetriever = createSelector(
-  retrieveRestaurant,
-  (restaurant) => ({
-    restaurant,
-  })
-);
+const restaurantRetriever = createSelector(retrieveFirm, (retrieveFirm) => ({
+  retrieveFirm,
+}));
 
 interface ProductsProps {
   onAdd: (item: CartItem) => void;
@@ -66,13 +42,13 @@ export default function Products(props: ProductsProps) {
   const { onAdd } = props;
   const { setProducts, setRestaurant } = actionDispatch(useDispatch());
   const { products } = useSelector(productsRetriever);
-  const { restaurant } = useSelector(restaurantRetriever);
+  const { retrieveFirm } = useSelector(restaurantRetriever);
 
   const [productSearch, setProductSearch] = useState<ProductInquiry>({
     order: "createdAt",
     page: 1,
     limit: 8,
-    productCollection: ProductCollection.DISH,
+    productCollection: FurnitureCategory.SOFA,
     search: "",
   });
 
@@ -96,7 +72,7 @@ export default function Products(props: ProductsProps) {
 
   /** HANDLERS **/
 
-  const searchCollectionHandler = (collection: ProductCollection) => {
+  const searchCollectionHandler = (collection: FurnitureCategory) => {
     productSearch.page = 1;
     productSearch.productCollection = collection;
     setProductSearch({ ...productSearch });
@@ -127,10 +103,7 @@ export default function Products(props: ProductsProps) {
       <Container>
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Stack className="avatar-box">
-            <div className="avatar-title">
-              {" "}
-              {restaurant?.memberNick} Restaurant
-            </div>
+            <div className="avatar-title">Panto Company </div>
             <Stack className="search-big-box">
               <input
                 type="search"
@@ -155,127 +128,143 @@ export default function Products(props: ProductsProps) {
             </Stack>
           </Stack>
 
-          <Stack className={"dishes-section-main"}>
-            <Stack className={"dishes-filter"} justifyContent={"flex-end"}>
-              <Button
-                variant={"contained"}
-                className={"order"}
-                color={
-                  productSearch.order === "createdAt" ? "primary" : "secondary"
-                }
-                onClick={() => searchOrderHandler("createdAt")}
-              >
-                New
-              </Button>
-              <Button
-                variant="contained"
-                className={"order"}
-                color={
-                  productSearch.order === "productPrice"
-                    ? "primary"
-                    : "secondary"
-                }
-                onClick={() => searchOrderHandler("productPrice")}
-              >
-                Price
-              </Button>
-              <Button
-                variant="contained"
-                className={"order"}
-                color={
-                  productSearch.order === "productViews"
-                    ? "primary"
-                    : "secondary"
-                }
-                onClick={() => searchOrderHandler("productViews")}
-              >
-                Views
-              </Button>
-            </Stack>
-          </Stack>
-
-          <Stack className={"list-category-section"}>
+          <Stack className={"sort-box"}>
             <Stack className={"category-wrap"}>
               <Stack className={"category-main"}>
                 <Button
                   variant="contained"
                   color={
-                    productSearch.productCollection === ProductCollection.OTHER
-                      ? "primary"
+                    productSearch.productCollection === FurnitureCategory.SOFA
+                      ? "inherit"
                       : "secondary"
                   }
                   className={"dish"}
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.OTHER)
+                    searchCollectionHandler(FurnitureCategory.SOFA)
+                  }
+                >
+                  SOFA
+                </Button>
+                <Button
+                  variant="contained"
+                  color={
+                    productSearch.productCollection === FurnitureCategory.BED
+                      ? "inherit"
+                      : "secondary"
+                  }
+                  className={"dish"}
+                  onClick={() => searchCollectionHandler(FurnitureCategory.BED)}
+                >
+                  BED
+                </Button>
+                <Button
+                  variant="contained"
+                  color={
+                    productSearch.productCollection === FurnitureCategory.TABLE
+                      ? "inherit"
+                      : "secondary"
+                  }
+                  className={"dish"}
+                  onClick={() =>
+                    searchCollectionHandler(FurnitureCategory.TABLE)
+                  }
+                >
+                  TABLE
+                </Button>
+                <Button
+                  variant="contained"
+                  color={
+                    productSearch.productCollection === FurnitureCategory.CHAIR
+                      ? "inherit"
+                      : "secondary"
+                  }
+                  className={"dish"}
+                  onClick={() =>
+                    searchCollectionHandler(FurnitureCategory.CHAIR)
+                  }
+                >
+                  CHAIR
+                </Button>
+                <Button
+                  variant="contained"
+                  color={
+                    productSearch.productCollection ===
+                    FurnitureCategory.AQUARIUM
+                      ? "inherit"
+                      : "secondary"
+                  }
+                  className={"dish"}
+                  onClick={() =>
+                    searchCollectionHandler(FurnitureCategory.AQUARIUM)
+                  }
+                >
+                  AQUARIUM
+                </Button>
+                <Button
+                  variant="contained"
+                  color={
+                    productSearch.productCollection === FurnitureCategory.OTHER
+                      ? "inherit"
+                      : "secondary"
+                  }
+                  className={"dish"}
+                  onClick={() =>
+                    searchCollectionHandler(FurnitureCategory.OTHER)
                   }
                 >
                   OTHER
                 </Button>
+              </Stack>
+            </Stack>
+            <Stack className={"dishes-section-main"}>
+              <Stack className={"dishes-filter"} justifyContent={"flex-end"}>
                 <Button
-                  variant="contained"
+                  variant={"contained"}
+                  className={"order"}
                   color={
-                    productSearch.productCollection === ProductCollection.DESERT
+                    productSearch.order === "createdAt"
                       ? "primary"
                       : "secondary"
                   }
-                  className={"dish"}
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.DESERT)
-                  }
+                  onClick={() => searchOrderHandler("createdAt")}
                 >
-                  DESSERT
+                  New
                 </Button>
                 <Button
                   variant="contained"
+                  className={"order"}
                   color={
-                    productSearch.productCollection === ProductCollection.DRINK
+                    productSearch.order === "productPrice"
                       ? "primary"
                       : "secondary"
                   }
-                  className={"dish"}
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.DRINK)
-                  }
+                  onClick={() => searchOrderHandler("productPrice")}
                 >
-                  DRINK
+                  Price
                 </Button>
                 <Button
                   variant="contained"
+                  className={"order"}
                   color={
-                    productSearch.productCollection === ProductCollection.SALAD
+                    productSearch.order === "productViews"
                       ? "primary"
                       : "secondary"
                   }
-                  className={"dish"}
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.SALAD)
-                  }
+                  onClick={() => searchOrderHandler("productViews")}
                 >
-                  SALAD
-                </Button>
-                <Button
-                  variant="contained"
-                  color={
-                    productSearch.productCollection === ProductCollection.DISH
-                      ? "primary"
-                      : "secondary"
-                  }
-                  className={"dish"}
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.DISH)
-                  }
-                >
-                  DISH
+                  Views
                 </Button>
               </Stack>
             </Stack>
+          </Stack>
 
+          <Stack className={"list-category-section"}>
             <Stack className="block-wrapper">
               {products.length !== 0 ? (
                 products.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   const sizeVolume =
-                    product.productCollection === ProductCollection.DRINK
+                    product.productCollection === FurnitureCategory.AQUARIUM
                       ? product.productVolume + " litre"
                       : product.productSize + " size";
                   return (
@@ -324,10 +313,13 @@ export default function Products(props: ProductsProps) {
                       </Stack>
                       <div className="product-desc">
                         <span className="product-title">
+                          {product.productCollection}
+                        </span>
+                        <span className="product-title">
                           {product.productName}
                         </span>
                         <div className="product-coin">
-                          <MonetizationOnIcon />
+                          <MonetizationOnIcon color={"disabled"} />
                           <span>{product.productPrice}</span>
                         </div>
                       </div>
@@ -364,38 +356,53 @@ export default function Products(props: ProductsProps) {
         </Stack>
       </Container>
 
+      <div className={"ads-restaurant-frame"}>
+        <video
+          className={"ads-video"}
+          autoPlay={true}
+          loop
+          muted
+          playsInline
+          data-video-media=""
+        >
+          <source type="video/mp4" src="video/adv2.mp4" />
+        </video>
+      </div>
+
       <div className="brands-logo">
         <Container>
           <Stack className="brand-title">
-            <Box className="brand-title-text">Our Family Brands</Box>
+            <Box className="brand-title-text">Our Panto Company</Box>
           </Stack>
           <Stack className="brand-logos">
             <Box className="logo-box">
-              <img
-                src="img/gurme.webp"
-                style={{ width: "238px", height: "329px" }}
-              />
+              <h2>Free Delivery</h2>
+              <Typography>
+                "Enjoy free delivery on all orders over $50! We strive to make
+                your shopping experience as convenient and enjoyable as
+                possible. Take advantage of fast delivery and top-quality
+                service!"
+              </Typography>
             </Box>
 
             <Box className="logo-box">
-              <img
-                src="img/seafood.webp"
-                style={{ width: "230px", height: "329px" }}
-              />
+              <h2>90 Days Return</h2>
+              <Typography>
+                "90-Day Hassle-Free Returns! We understand that sometimes things
+                don't go as planned, so we offer a straightforward return
+                policy. Shop with confidence knowing you have up to 90 days to
+                return your items for a full refund or exchange!"
+              </Typography>
             </Box>
 
             <Box className="logo-box">
-              <img
-                src="img/sweets.webp"
-                style={{ width: "238px", height: "329px" }}
-              />
-            </Box>
-
-            <Box className="logo-box">
-              <img
-                src="img/doner.webp"
-                style={{ width: "238px", height: "329px" }}
-              />
+              <h2>Secure Payment</h2>
+              <Typography>
+                "Secure Payment Guaranteed! Shop with peace of mind knowing your
+                transactions are protected with the latest security measures.
+                Your privacy and safety are our top priorities, ensuring a
+                seamless and trustworthy payment experience."
+              </Typography>
             </Box>
           </Stack>
         </Container>

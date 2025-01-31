@@ -5,13 +5,7 @@ import { CssVarsProvider } from "@mui/joy";
 import CardOverflow from "@mui/joy/CardOverflow";
 import AspectRatio from "@mui/joy/AspectRatio";
 
-import CardContent from "@mui/joy/CardContent";
-import Divider from "@mui/joy/Divider";
 import Typography from "@mui/joy/Typography";
-import IconButton from "@mui/joy/IconButton";
-import Link from "@mui/joy/Link";
-import Favorite from "@mui/icons-material/Favorite";
-
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrieveTopUsers } from "./selector";
