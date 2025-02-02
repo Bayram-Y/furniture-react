@@ -1,4 +1,3 @@
-
 export enum FurnitureSize {
   SMALL = "SMALL",
   MEDIUM = "MEDIUM",
@@ -29,6 +28,4 @@ export enum FurnitureCategory {
   TABLE = "TABLE",
   AQUARIUM = "AQUARIUM",
   BED = "BED",
-  OTHER = "OTHER",
 }
-

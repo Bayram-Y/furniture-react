@@ -56,11 +56,11 @@ export default function NewDishes() {
                         <Stack className={"info"}>
                           <Stack flexDirection={"row"}>
                             <Typography className={"title"}>
-                              {product.productName}
+                              ${product.productPrice}
                             </Typography>
                             <Divider width="2" height="24" bg="#d9d9d9" />
                             <Typography className={"price"}>
-                              ${product.productPrice}
+                              {product.productName}
                             </Typography>
                           </Stack>
                           <Stack>

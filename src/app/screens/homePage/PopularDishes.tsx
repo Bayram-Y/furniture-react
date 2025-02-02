@@ -7,7 +7,7 @@ import Typography from "@mui/joy/Typography";
 import { CssVarsProvider } from "@mui/joy/styles";
 import CardOverflow from "@mui/joy/CardOverflow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import DescriptionOutlinedIcon from "@mui/icons-material/DialerSipOutlined";
+import WeekendOutlinedIcon from "@mui/icons-material/WeekendOutlined";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
@@ -51,7 +51,7 @@ export default function PopularDishes() {
                             textColor={"#fff"}
                             mb={1}
                           >
-                            {product.productName}
+                            {product.productCollection}
                           </Typography>
                           <Typography
                             sx={{
@@ -79,10 +79,10 @@ export default function PopularDishes() {
                         }}
                       >
                         <Typography
-                          startDecorator={<DescriptionOutlinedIcon />}
+                          startDecorator={<WeekendOutlinedIcon />}
                           textColor={"neutral.300"}
                         >
-                          {product.productDesc}
+                          {product.productName}
                         </Typography>
                       </CardOverflow>
                     </Card>

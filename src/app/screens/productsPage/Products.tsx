@@ -200,20 +200,6 @@ export default function Products(props: ProductsProps) {
                 >
                   AQUARIUM
                 </Button>
-                <Button
-                  variant="contained"
-                  color={
-                    productSearch.productCollection === FurnitureCategory.OTHER
-                      ? "inherit"
-                      : "secondary"
-                  }
-                  className={"dish"}
-                  onClick={() =>
-                    searchCollectionHandler(FurnitureCategory.OTHER)
-                  }
-                >
-                  OTHER
-                </Button>
               </Stack>
             </Stack>
             <Stack className={"dishes-section-main"}>
@@ -378,7 +364,7 @@ export default function Products(props: ProductsProps) {
             <Box className="logo-box">
               <h2>Free Delivery</h2>
               <Typography>
-                "Enjoy free delivery on all orders over $50! We strive to make
+                "Enjoy free delivery on all orders over $500! We strive to make
                 your shopping experience as convenient and enjoyable as
                 possible. Take advantage of fast delivery and top-quality
                 service!"
