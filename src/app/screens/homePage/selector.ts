@@ -7,7 +7,7 @@ export const retrievePopularProduct = createSelector(
   (homePage: HomePageState) => homePage.popularProduct //(2)
 );
 
-export const retrieveNewDishes = createSelector(
+export const retrieveNewProduct = createSelector(
   selectHomePage,
   (homePage: HomePageState) => homePage.newProduct
 );

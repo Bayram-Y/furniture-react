@@ -10,20 +10,20 @@ import Divider from "../../components/divider";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { retrieveNewDishes } from "./selector";
+import { retrieveNewProduct } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
 import { FurnitureCategory } from "../../../lib/enums/product.enum";
 
 /** REDUX  SELECTOR  **/
-const newDishesretriever = createSelector(retrieveNewDishes, (newDishes) => ({
-  newDishes,
+const newProductretriever = createSelector(retrieveNewProduct, (newProduct) => ({
+  newProduct,
 }));
 
 export default function NewDishes() {
-  const { newDishes } = useSelector(newDishesretriever);
+  const { newProduct } = useSelector(newProductretriever);
 
-  console.log("newDishes:", newDishes);
+  console.log("newProduct:", newProduct);
 
   return (
     <div className={"new-products-frame"}>
@@ -32,8 +32,8 @@ export default function NewDishes() {
           <Box className={"category-title"}>Trending Products</Box>
           <Stack className={"cards-frame"}>
             <CssVarsProvider>
-              {newDishes.length !== 0 ? (
-                newDishes.map((product: Product) => {
+              {newProduct.length !== 0 ? (
+                newProduct.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   const sizeVolume =
                     product.productCollection === FurnitureCategory.AQUARIUM

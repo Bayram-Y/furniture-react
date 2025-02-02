@@ -8,12 +8,12 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import CardOverflow from "@mui/joy/CardOverflow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import WeekendOutlinedIcon from "@mui/icons-material/WeekendOutlined";
-
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
 import { retrievePopularProduct } from "./selector";
+import Rating from "@mui/material/Rating";
 
 /** REDUX  SELECTOR  **/
 const popularProductRetriever = createSelector(
