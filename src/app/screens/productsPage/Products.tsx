@@ -1,5 +1,12 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { Container, Button, Box, Stack, Typography } from "@mui/material";
+import {
+  Container,
+  Button,
+  Box,
+  Stack,
+  Typography,
+  Rating,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -298,9 +305,13 @@ export default function Products(props: ProductsProps) {
                         </Button>
                       </Stack>
                       <div className="product-desc">
-                        <span className="product-title">
-                          {product.productCollection}
-                        </span>
+                        <Box className={"rating-box"}>
+                          <Rating
+                            name="half-rating"
+                            defaultValue={5}
+                            precision={0.5}
+                          />
+                        </Box>
                         <span className="product-title">
                           {product.productName}
                         </span>
