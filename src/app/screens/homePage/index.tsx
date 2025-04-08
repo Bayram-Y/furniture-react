@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Statistics from "./Statistics";
-import PopularDishes from "./PopularDishes";
-import NewDishes from "./NewDishes";
+import PopularDishes from "./PopularProduct";
+import NewDishes from "./NewProduct";
 import Advertisement from "./Advertisement";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
