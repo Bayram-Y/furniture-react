@@ -1,14 +1,12 @@
 import axios from "axios";
 import { serverApi } from "../../lib/config";
-import { Product, ProductInquiry } from "../../lib/types/product";
 import {
   LoginInput,
   Member,
   MemberInput,
   MemberUpdateInput,
 } from "../../lib/types/member";
-import { json } from "stream/consumers";
-import { JsxEmit } from "typescript";
+
 
 class MemberService {
   private readonly path: string;
