@@ -145,7 +145,7 @@ export default function Products(props: ProductsProps) {
                       ? "inherit"
                       : "secondary"
                   }
-                  className={"dish"}
+                  className={"furniture"}
                   onClick={() =>
                     searchCollectionHandler(FurnitureCategory.SOFA)
                   }
@@ -159,7 +159,7 @@ export default function Products(props: ProductsProps) {
                       ? "inherit"
                       : "secondary"
                   }
-                  className={"dish"}
+                  className={"furniture"}
                   onClick={() => searchCollectionHandler(FurnitureCategory.BED)}
                 >
                   BED
@@ -171,7 +171,7 @@ export default function Products(props: ProductsProps) {
                       ? "inherit"
                       : "secondary"
                   }
-                  className={"dish"}
+                  className={"furniture"}
                   onClick={() =>
                     searchCollectionHandler(FurnitureCategory.TABLE)
                   }
@@ -185,7 +185,7 @@ export default function Products(props: ProductsProps) {
                       ? "inherit"
                       : "secondary"
                   }
-                  className={"dish"}
+                  className={"furniture"}
                   onClick={() =>
                     searchCollectionHandler(FurnitureCategory.CHAIR)
                   }
@@ -200,7 +200,7 @@ export default function Products(props: ProductsProps) {
                       ? "inherit"
                       : "secondary"
                   }
-                  className={"dish"}
+                  className={"furniture"}
                   onClick={() =>
                     searchCollectionHandler(FurnitureCategory.AQUARIUM)
                   }

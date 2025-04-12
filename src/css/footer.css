@@ -9,7 +9,7 @@
 }
 .foot-desc-txt {
   margin-top: 22px;
-  font-family: "Poppins";
+  font-family: cursive;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -50,9 +50,9 @@
 
 .follow-us .sns-context span {
   margin-left: 10px;
-  font-family: "Poppins";
+  font-family: cursive;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
   line-height: 34px;
   color: #0c0a07;
@@ -71,8 +71,8 @@
 .foot-category-link span {
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 20px;
   line-height: 34px;
 }
 
@@ -84,11 +84,10 @@
   justify-content: space-between;
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 20px;
   line-height: 34px;
   color: #0e0901;
-  text-decoration: none;
 }
 
 .foot-category-link a {
@@ -118,7 +117,7 @@
   margin-left: 20px;
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   line-height: 34px;
   color: #090909;
@@ -127,7 +126,7 @@
 .copyright-txt p {
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
   line-height: 34px;
   color: #090909;

@@ -72,12 +72,10 @@
   flex-direction: row;
   justify-content: center;
 }
-/* DISHES SECTION*/
+/* PRODUCTS SECTION*/
 
 .products-page .products .dishes-section-main {
-  /* margin-top: 70px; */
   width: 100%;
-  /* height: 80px; */
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -96,9 +94,9 @@
   margin-right: 20px;
   border-radius: 25px 25px 25px 25px;
   font-family: "Helvetica";
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* CATEGORY*/
@@ -119,23 +117,22 @@
   display: flex;
   flex-direction: row;
   height: auto;
-  /* background-color: rgb(177, 177, 177); */
 }
 
-.products .category-wrap .category-main .dish {
+.products .category-wrap .category-main .furniture {
   min-width: auto;
   height: 36px;
   margin-right: 10px;
   border-radius: 25px 25px 25px 25px;
-  font-family: "Helvetica";
-  font-size: 14px;
+  font-family: "Poppins","Helvetica";
+  font-size: 16px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
   color: #1e1e1e;
 }
 
-.products .category-wrap .category-main .dish:hover {
+.products .category-wrap .category-main .furniture:hover {
   cursor: pointer;
   background-color: rgb(177, 177, 177);
 }
@@ -282,14 +279,6 @@
   z-index: 1;
 }
 
-.product-desc {
-  /* align-items: center; */
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 .products .product-card .product-title {
   margin-left: 10px;
   font-family: "Poppins";
@@ -361,23 +350,22 @@
 
 .brands-logo .brand-logos .logo-box {
   height: 260px;
-  width: 420px;
+  width: 425px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 16px;
-  background: cover no-repeat;
   box-shadow: 0px 0px 22px 0px #e4d4d4;
   margin-right: 75px;
 }
 .brands-logo .brand-logos .logo-box p {
   text-align: center;
-  font-family: "Poppins";
+  font-family: cursive;
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #000000;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #303030;
 }
 
 /** ADVERTISEMENT  **/
@@ -385,7 +373,6 @@
 .products .ads-restaurant-frame {
   width: 100%;
   height: 1039px;
-  /* height: 590px; */
   display: flex;
   overflow: hidden;
   transform: perspective(0px);
@@ -543,14 +530,14 @@
 }
 
 .products-page .chosen-product .info-box .product-desc {
-  height: 112px;
+  height: 122px;
   margin-top: 30px;
   margin-bottom: 30px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 19px;
   color: #000000;
 }
 

@@ -32,11 +32,11 @@ export default function Materials() {
           </Stack>
           <Stack className={"story-right"}>
             <Stack className={"img1"}>
-              <img src="./img/material1.png" className="image1" />
-              <img src="./img/material2.png" />
+              <img src="/img/material1.png" alt="iamge" className="image1" />
+              <img src="/img/material2.png" alt="iamge" />
             </Stack>
             <Stack className={"img2"}>
-              <img src="./img/material3.png" />
+              <img src="/img/material3.png" alt="iamge" />
             </Stack>
           </Stack>
         </Stack>
