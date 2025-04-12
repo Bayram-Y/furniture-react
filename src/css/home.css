@@ -85,7 +85,7 @@
   justify-content: center;
 }
 
-/** POPULAR DISHES  BEST SELLING **/
+/** POPULAR BEST SELLING **/
 
 .homepage .popular-dishes-frame {
   width: 100%;
@@ -374,8 +374,11 @@
   height: 300px;
 }
 .homepage .story-frame .story-left h3 {
+  font-size: 25px;
   font-weight: 600;
+  font-family: cursive;
   color: #ff9200;
+
 }
 
 .homepage .story-frame .story-left h2 {
@@ -384,28 +387,21 @@
   height: 156px;
   top: 3597px;
   left: 80px;
-  gap: 0px;
-  opacity: 0px;
-
   font-family: "Gilroy-Bold";
   font-size: 42px;
   line-height: 49.22px;
   text-align: left;
-  text-underline-position: "from-font";
-  text-decoration-skip-ink: none;
 }
 
 .homepage .story-frame .story-left span {
   width: 520px;
   height: 99px;
-  opacity: 0.8px;
-  font-family: "Gilroy-Regular";
-  opacity: 80%;
+  font-family: cursive;
   font-size: 20px;
   line-height: 29.6px;
   text-align: left;
-  text-underline-position: "from-font";
-  text-decoration-skip-ink: none;
+  opacity: 80%;
+
   color: #1e1e1e;
 }
 
@@ -431,8 +427,6 @@
   height: 338.42px;
   top: 3707px;
   left: 730px;
-  gap: 0px;
-  opacity: 0px;
 }
 .homepage .story-frame .story-right .img1 .image1 {
   margin-bottom: 40px;
@@ -443,9 +437,7 @@
   margin-left: 85px;
   width: 629px;
   height: 445px;
-  gap: 0px;
   border-radius: 20px 0px 0px 0px;
-  opacity: 0px;
 }
 
 /** EVENTS Active users **/
